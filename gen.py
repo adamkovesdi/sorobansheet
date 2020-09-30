@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Soroban worksheet generator
 from random import triangular, seed, sample, randint
 import math
@@ -8,7 +9,7 @@ def get_digit():
 
 
 def get_operator():
-    op = sample([1, 1, 1, 1, 1, -1], 1)[0]
+    op = sample([1, 1, 1, 1, 1, 1, 1, -1, -1, -1], 1)[0]
     return op
 
 
@@ -34,16 +35,23 @@ def gen_excercise(operands):
 
 
 def format_excercise(ex):
+    ret = ''
     for operand in ex['numbers']:
-        print('{:=8d}'.format(operand))
-    print('-'*8)
-    print('{:=8d}'.format(ex['result']))
-    print
+        ret += '{:=8d}'.format(operand) + '\n'
+    ret += '-'*8 + '\n'
+    # ret += '{:=8d}'.format(ex['result']) + '\n'
+    return(ret)
+
+
+def get_result(ex):
+    ret = ''
+    ret += '{:=8d}'.format(ex['result'])
+    return(ret)
 
 
 # CLI proof of concept
-
-for _ in range(3):
-    g = gen_excercise(3)
-    ex = g.next()
-    format_excercise(ex)
+def poc():
+    for _ in range(3):
+        g = gen_excercise(3)
+        ex = next(g)
+        format_excercise(ex)

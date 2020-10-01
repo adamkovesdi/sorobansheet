@@ -7,7 +7,7 @@ Outputs a single page pdf with 25 excercises in addition and subtraction on soro
 ## Usage
 
 ```
-python3 gen.py
+python3 pdf.py
 ```
 Outputs one file: output.pdf (A4, printable)
 
